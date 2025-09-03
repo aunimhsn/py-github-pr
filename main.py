@@ -19,3 +19,17 @@ def caesar(text:str, offset:int = 1) -> str:
         result += char
     
     return result
+
+def caesar_decipher(text):
+    result = ""
+
+    for char in text:
+        if char != " ":
+            code = ord(char)  # transforme la lettre en nombre
+            code -= 1           # soustrait 1
+            if code < ord("A"): # si on dépasse A, on recommence au début
+                code += 26
+            result += chr(code)  # retransforme en lettre
+    return result
+
+print(caesar_decipher("KT d'ftu dppm !"))
